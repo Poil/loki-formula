@@ -3,7 +3,7 @@
 promtail:
   user.present:
     - fullname: promtail daemon
-    - gid: root
+    - gid: systemd-journal
     - system: True
 
 promtail_install_dir:
