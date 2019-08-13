@@ -1,0 +1,7 @@
+{% import_yaml "loki/defaults.yaml" as default_settings %}
+{% set loki = salt['pillar.get'](
+    'loki',
+    default=default_settings.loki,
+    merge=True)
+%}
+
