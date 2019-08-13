@@ -58,7 +58,7 @@ loki_service:
   service.running:
     - name: loki
     - enable: True
-    - reload: True
+    - reload: False
     - watch:
       - file: loki_binary
       - file: {{ loki.server.install_dir }}/loki/loki.yml

@@ -67,7 +67,7 @@ promtail_service:
   service.running:
     - name: promtail
     - enable: True
-    - reload: True
+    - reload: False
     - watch:
       - file: promtail_binary
       - file: {{ loki.promtail.install_dir }}/promtail/promtail.yml
