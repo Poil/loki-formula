@@ -1,6 +1,11 @@
----
+# Configure Loki Server
+
+```yaml
 loki:
   server:
+    enable: true
+	source: http://mybuildedpackage.com/loki-0.2.0.el7
+	source_hash: md5=513a2d3706b59156dc07ca6ec62d444e
     install_dir: /opt
     config:
       auth_enabled: false
@@ -52,6 +57,23 @@ loki:
 
   promtail:
     install_dir: /opt
+	source: http://mybuildedpackage.com/promtail-0.2.0.el7
+	source_hash: md5=bd0f67b1ad4f940138723d02afe4e71d
+    enable: false
+```
+
+```yaml
+# Configure Promtail
+loki:
+  server:
+    enable: false
+	source: http://mybuildedpackage.com/loki-0.2.0.el7
+	source_hash: md5=513a2d3706b59156dc07ca6ec62d444e
+  promtail:
+    install_dir: /opt
+	source: http://mybuildedpackage.com/promtail-0.2.0.el7
+	source_hash: md5=bd0f67b1ad4f940138723d02afe4e71d
+    enable: true
     config:
       server:
         http_listen_port: 9080
@@ -69,4 +91,4 @@ loki:
           relabel_configs:
             - source_labels: ['__journal__systemd_unit']
               target_label: 'unit'
-...
+```

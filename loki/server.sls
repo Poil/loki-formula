@@ -18,6 +18,8 @@ loki_binary:
     - group: root
     - mode: '0755'
     - source: "{{ loki.server.source }}"
+    - source_hash: "{{ loki.server.source_hash }}"
+    - skip_verify: "{{ loki.server.skip_verify }}"
 
 loki_service_file:
   file.managed:

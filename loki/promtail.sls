@@ -3,7 +3,7 @@
 promtail:
   user.present:
     - fullname: promtail daemon
-    - group: root
+    - gid: root
     - system: True
 
 promtail_install_dir:
@@ -20,6 +20,8 @@ promtail_binary:
     - group: root
     - mode: '0755'
     - source: "{{ loki.promtail.source }}"
+    - source_hash: "{{ loki.promtail.source_hash }}"
+    - skip_verify: "{{ loki.promtail.skip_verify }}"
 
 promtail_service_file:
   file.managed:
