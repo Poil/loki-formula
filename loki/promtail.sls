@@ -40,7 +40,7 @@ promtail_service_file:
           Description: Promtail Server
           After: network-online.target
         Service:
-          User: loki
+          User: promtail
           Restart: on-failure
           ExecStart: {{ loki.promtail.install_dir }}/promtail/promtail -config.file {{ loki.promtail.install_dir }}/promtail/promtail.yml
         Install:
