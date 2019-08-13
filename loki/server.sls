@@ -1,7 +1,8 @@
 {% from "loki/map.jinja" import loki with context %}
 
-loki:
+loki_user:
   user.present:
+    - name: loki
     - fullname: loki daemon
     - system: True
 
@@ -53,8 +54,9 @@ loki_service_file:
     - group: root
     - mode: '0644'
 
-loki:
+loki_service:
   service.running:
+    - name: loki
     - enable: True
     - reload: True
     - watch:

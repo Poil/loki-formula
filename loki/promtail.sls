@@ -1,7 +1,8 @@
 {% from "loki/map.jinja" import loki with context %}
 
-promtail:
+promtail_user:
   user.present:
+    - name: promtail
     - fullname: promtail daemon
     - gid: systemd-journal
     - system: True
@@ -62,8 +63,9 @@ promtail_service_file:
     - group: root
     - mode: '0644'
 
-promtail:
+promtail_service:
   service.running:
+    - name: promtail
     - enable: True
     - reload: True
     - watch:
