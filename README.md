@@ -91,4 +91,10 @@ loki:
           relabel_configs:
             - source_labels: ['__journal__systemd_unit']
               target_label: 'unit'
+            - source_labels:
+                - __journal__hostname
+              target_label: hostname
+            - source_labels:
+                - __journal_syslog_identifier
+              target_label: identifier
 ```
