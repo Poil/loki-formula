@@ -62,4 +62,11 @@ promtail_service_file:
     - group: root
     - mode: '0644'
 
-
+promtail:
+  service.running:
+    - enable: True
+    - reload: True
+    - watch:
+      - file: promtail_binary
+      - file: {{ loki.promtail.install_dir }}/promtail/promtail.yml
+      - file: /etc/systemd/system/promtail.service

@@ -52,3 +52,12 @@ loki_service_file:
     - user: root
     - group: root
     - mode: '0644'
+
+loki:
+  service.running:
+    - enable: True
+    - reload: True
+    - watch:
+      - file: loki_binary
+      - file: {{ loki.server.install_dir }}/loki/loki.yml
+      - file: /etc/systemd/system/loki.service
