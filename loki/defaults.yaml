@@ -65,7 +65,7 @@ loki:
         http_listen_port: 9080
         grpc_listen_port: 0
       positions:
-        filename: /opt/promtail/positions.yaml
+        filename: /var/lib/promtail/positions.yaml
       clients:
         - url: http://localhost:3100/api/prom/push
       scrape_configs:

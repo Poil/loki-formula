@@ -13,6 +13,13 @@ promtail_install_dir:
     - group: root
     - mode: 0755
 
+promtail_lib_dir:
+  file.directory:
+    - name: "/var/lib/promtail"
+    - user: promtail
+    - group: root
+    - mode: 0755
+
 promtail_binary:
   file.managed:
     - name: "{{ loki.promtail.install_dir }}/promtail/promtail"
@@ -54,3 +61,5 @@ promtail_service_file:
     - user: root
     - group: root
     - mode: '0644'
+
+
